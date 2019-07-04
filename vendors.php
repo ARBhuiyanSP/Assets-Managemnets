@@ -134,7 +134,7 @@
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <script src="plugins/switchery/switchery.min.js"></script>
 		
-		  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="plugins/datatables/dataTables.bootstrap.js"></script>
 
         <script src="plugins/datatables/dataTables.buttons.min.js"></script>
@@ -163,7 +163,7 @@
                     }
                 });
                 $('#datatable-scroller').DataTable({
-                    ajax: "plugins/datatables/json/scroller-demo.json",
+                    ajax: "../plugins/datatables/json/scroller-demo.json",
                     deferRender: true,
                     scrollY: 380,
                     scrollCollapse: true,

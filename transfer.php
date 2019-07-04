@@ -1,5 +1,4 @@
 <?php include('header.php');
- 
 ?>
             <!-- Left Sidebar End -->
 			<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -36,7 +35,6 @@
 							$sql	=	"select * from ams_products where id=$id";
 							$result = mysqli_query($link, $sql);
 							$row=mysqli_fetch_array($result);
-							
 							?>
                             <div class="col-lg-4">
 								<table style="" class="table table-bordered">
@@ -79,52 +77,104 @@
 								<img src="<?php echo $row['qr_image'] ?>" height="250" />
 							</div>
 						</div>
-						<h3 style="color:red;">Want To Assign This Product ?</h3>
-						<form action="movetoassign.php" method="post">
-							<div class="row">
-								<div class="col-lg-8">
-									<table style="" class="table table-bordered">
-										<tr>
-											<th>Assign date:</th>
-											<td><?php 
-											$product_id=$row['id'];
-											$sql2	=	"select * from `product_assign` where `product_id`='$product_id'";
-											$result2 = mysqli_query($link, $sql2);
-											$rowp=mysqli_fetch_array($result2);
-											
-											
-											$cDate = strtotime($rowp['assign_date']);
-											$dDate = date("jS \of F Y",$cDate);
-											echo $dDate;?></td>
-										</tr>
-										<tr>
-											<th>Assign To:</th>
-											<td><?php 
-											$employee_id=$rowp['employee_id'];
-											$sql4	=	"select * from `employees` where `employee_id`='$employee_id'";
-											$result4 = mysqli_query($link, $sql4);
-											$rowe=mysqli_fetch_array($result4);
-											echo $rowe['employee_name'];
-											echo '-'.$row['employee_id'];
-
-											 ?></td>
-										</tr>
-										<tr>
-											<th>Remarks:</th>
-											<td><?php echo $rowp['remarks']; ?></td>
-										</tr>
-									</table>
+						<div class="row">
+							<div class="col-xs-2">
+								<div class="form-group">
+									<?php 
+										$product_id= $row['id'];
+										$sql2	= "SELECT * FROM product_assign WHERE product_id=$product_id ORDER BY id DESC LIMIT 1 ;";
+										$result2 = mysqli_query($link, $sql2);
+										$row2=mysqli_fetch_array($result2);
+										?>
+									<label>Assign To</label>
+									<?php 
+									$employee_id=$row2['employee_id'];
+									$sql3	= "SELECT * FROM `employees` WHERE `employee_id`='$employee_id' ;";
+									$result3 = mysqli_query($link, $sql3);
+									$row3=mysqli_fetch_array($result3);
+									?>
+									<input name="employee_id" type="text" class="form-control" id="" value="<?php echo $row3['employee_name'] ?>" readonly />
 								</div>
 							</div>
-							<button class="btn btn-danger" type="submit" name="submit"> Assign This Product</i></button>
-							<input type="hidden" name="product_id" value="<?php echo $id ?>" />
+							<div class="col-xs-2">
+								<div class="form-group">
+									<label>Assign Date</label>
+									<input name="assign_date" type="text" class="form-control" id="" value="<?php echo $row2['assign_date'] ?>" readonly />
+								</div>
+							</div>
+							<div class="col-xs-4">
+								<div class="form-group">
+									<label>Remarks</label>
+									<input name="remarks" type="text" class="form-control" id="" value="<?php echo $row2['remarks'] ?>" readonly />
+								</div>
+							</div>
+						</div>
+						<h3 style="color:red;">Want To Transfer This Product ?</h3>
+						<form action="movetotransfer.php" method="post">
+							<div class="row">
+								<div class="col-xs-4">
+									<div class="form-group">
+										<?php 
+											$product_id= $row['id'];
+											$sql2	= "SELECT * FROM product_assign WHERE product_id=$product_id ORDER BY id DESC LIMIT 1 ;";
+											$result2 = mysqli_query($link, $sql2);
+											$row2=mysqli_fetch_array($result2);
+											?>
+										<label>Assign To</label>
+										<select id="dv" name="employee_id" class="form-control select2">
+											<option>Select Employee</option>
+											<?php 
+											$sql	= "select * from employees ORDER BY employee_id ASC";
+											$result = mysqli_query($link, $sql);
+											while($row=mysqli_fetch_array($result))
+												{
+											?>
+											<option value="<?php echo $row['employee_id'] ?>">
+											<?php echo $row['employee_name'] ?>-
+											<?php 	$deg_id=$row['designation'];
+													$sqldeg="select * from `designations` where `deg_id`='$deg_id'";
+													$resultdeg = mysqli_query($link, $sqldeg);
+													$rowdeg=mysqli_fetch_array($resultdeg);
+													echo $rowdeg['deg_name']; ?>-
+											<?php 	$dept_id=$row['department'];
+													$sqldept="select * from `departments` where `dept_id`='$dept_id'";
+													$resultdept = mysqli_query($link, $sqldept);
+													$rowdept=mysqli_fetch_array($resultdept);
+													echo $rowdept['dept_name']; ?>-
+											<?php 	$division_id=$row['division'];
+													$sqldiv="select * from `divisions` where `division_id`='$division_id'";
+													$resultdiv = mysqli_query($link, $sqldiv);
+													$rowdiv=mysqli_fetch_array($resultdiv);
+													echo $rowdiv['division_name']; ?>
+											<?php } ?>
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-4">
+									<div class="form-group">
+										<label>Assign Date</label>
+										<input name="assign_date" type="text" class="form-control" id="rndate" value="" />
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-8">
+									<div class="form-group">
+										<label for="ad">Remarks</label>
+										<textarea id="ad" name="remarks" class="form-control" placeholder=""></textarea>
+									</div>
+								</div>
+							</div>
+							<button class="btn btn-danger" type="submit" name="submit"> Transfer This Product</i></button>
+							<input type="text" name="id" value="<?php echo $row2['id'] ?>" />
+							<input type="hidden" name="product_id" value="<?php echo $product_id ?>" />
 						</form>
                     </div> <!-- container -->
 
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
-                   2018 - <?php echo date('Y'); ?> © <a href="" target="blank">Saif Powertec</a>
+                   2018 - <?php echo date('Y'); ?> © <a href="" target="blank">Saif Powertec LTD</a>
                 </footer>
 
             </div>
