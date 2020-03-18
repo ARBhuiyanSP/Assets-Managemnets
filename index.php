@@ -98,7 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>RP PORT - User Login System</title>
+        <title>Blueline Communications Ltd</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -133,11 +133,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             <div class="m-t-40 account-pages" style="border:1px solid gray;border-radius:5px;background-color:#f5faf3;">
                                 <div class="text-center account-logo-box">
-                                    <h2 class="text-uppercase">
+                                    <h3 class="text-uppercase">
                                         <a href="index.php" class="text-success" style="font-family:algerian;color:#fff;">
-                                            RP PORT
+                                           Blueline Communications Ltd
                                         </a>
-                                    </h2>
+                                    </h3>
                                     <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
                                 </div>
                                 <div class="account-content">

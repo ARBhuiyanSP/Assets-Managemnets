@@ -30,38 +30,38 @@
 						</div>
                         <!-- end row -->
 
-                       <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <form id="sidebar">
-                    <div class="form-group">
-                        <label for="id">Company ID</label>
-                        <input type="text" id="id" name="id" class="form-control" placeholder="Identity" value="CM-"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="nm">Company Name</label>
-                        <input type="text" id="nm" name="nm" class="form-control" placeholder="Full Name"/>
-                    </div>
-                    <button type="button" id="save" class="btn btn-primary" onclick="saveData()">Save</button>
-                    <button type="button" id="update" class="btn btn-warning" onclick="updateData()">Update</button>
-                </form>
-            </div>
-            <div class="col-md-9">
-                <table id="dataTable" class="table table-bordered table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th width="40">Company ID</th>
-                            <th>Company Name</th>
-                            <th width="100">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-						
-					</tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+                        <div class="container">
+							<div class="row">
+								<div class="col-md-3">
+									<form id="sidebar">
+										<div class="form-group">
+											<label for="id">Company ID</label>
+											<input type="text" id="id" name="id" class="form-control" placeholder="Identity" value="CM-"/>
+										</div>
+										<div class="form-group">
+											<label for="nm">Company Name</label>
+											<input type="text" id="nm" name="nm" class="form-control" placeholder="Full Name"/>
+										</div>
+										<button type="button" id="save" class="btn btn-primary" onclick="saveData()">Save</button>
+										<button type="button" id="update" class="btn btn-warning" onclick="updateData()">Update</button>
+									</form>
+								</div>
+								<div class="col-md-9">
+									<table id="dataTable" class="table table-bordered table-striped table-hover">
+										<thead>
+											<tr>
+												<th width="40">Company ID</th>
+												<th>Company Name</th>
+												<th width="100">Action</th>
+											</tr>
+										</thead>
+										<tbody>
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
 	
 			
 

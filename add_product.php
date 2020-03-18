@@ -28,6 +28,7 @@ if(isset($_POST['Submit']) && !empty($_POST['Submit']) ){
     
 
 	$assets_category 	= $_POST['assets_category'];
+	$item_name 			= $_POST['item_name'];
 	$assets_description = $_POST['assets_description'];
 	$brand 				= $_POST['brand'];
 	$model 				= $_POST['model'];
@@ -46,17 +47,24 @@ if(isset($_POST['Submit']) && !empty($_POST['Submit']) ){
 
 
 
-	if (is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) 
+	if (is_uploaded_file($_FILES['slfileToUpload']['tmp_name'])) 
 	  {
-		$img=time()."_".$_FILES['fileToUpload']['name'];
-		$temp_file=$_FILES['fileToUpload']['tmp_name'];
+		$slimg=time()."_".$_FILES['slfileToUpload']['name'];
+		$temp_file=$_FILES['slfileToUpload']['tmp_name'];
 		
-		 move_uploaded_file($temp_file,"products_photo/".$img);
+		 move_uploaded_file($temp_file,"products_photo/".$slimg);
 	  }
 
+	if (is_uploaded_file($_FILES['profileToUpload']['tmp_name'])) 
+	  {
+		$proimg=time()."_".$_FILES['profileToUpload']['name'];
+		$temp_file=$_FILES['profileToUpload']['tmp_name'];
+		
+		 move_uploaded_file($temp_file,"products_photo/".$proimg);
+	  }
 
 	## Check Null Value Start
-	if (empty($assets_description) || empty($rlp_no) || empty($purchase_date)) 
+	if (empty($assets_description) || empty($manufacturing_sl) || empty($rlp_no)) 
 	{
 	  echo "<script>alert('Empty fields not allowed')</script>";
 	  echo "<script>location.href='products_entry.php'</script>";
@@ -64,14 +72,14 @@ if(isset($_POST['Submit']) && !empty($_POST['Submit']) ){
 	}
 	## Check Null Value End
 
-	$sql	=	"insert into ams_products values('','$assets_category','','$assets_description','$brand','$model','$manufacturing_sl','$rlp_no','','$purchase_order','$delivery_chalan','$vendor_name','$purchase_date','$warrenty','$purchase_value','$origin','$custody','$status','$condition','$img','$pngAbsoluteFilePath','','','')";
+	$sql	=	"insert into `ams_products` values('','$assets_category','$item_name','$assets_description','$brand','$model','$manufacturing_sl','$rlp_no','','$purchase_order','$delivery_chalan','$vendor_name','$purchase_date','$warrenty','$purchase_value','$origin','$custody','$status','$condition','$slimg','$proimg','$pngAbsoluteFilePath','','','','')";
 
 	mysqli_query($link, $sql);
 
 
 
 	echo "<script>alert('1 Record Successfully Added')</script>";
-	ECHO "<script>location.href='products_entry.php'</script>";
+	ECHO "<script>location.href='products_list.php'</script>";
 
 }
 ?>

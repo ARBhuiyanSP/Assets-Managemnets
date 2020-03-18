@@ -12,7 +12,7 @@ File: Menu
   z-index: 999;
 }
 .topbar .topbar-left {
-  background: #36404e;
+  background: #ffffff;
   float: left;
   text-align: center;
   height: 70px;
@@ -88,7 +88,7 @@ File: Menu
   width: 225px;
   padding-top: 10px;
   z-index: 10;
-  background: #36404e;
+  background: #f26522;
   bottom: 50px;
   margin-top: 0;
   padding-bottom: 70px;
@@ -97,7 +97,7 @@ File: Menu
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 }
 .side-menu .waves-effect .waves-ripple {
-  background-color: rgba(127, 193, 252, 0.4);
+  background-color: #fff;
 }
 .side-menu.left {
   position: absolute;
@@ -176,6 +176,7 @@ body.fixed-left .side-menu.left {
 }
 #sidebar-menu ul li .menu-arrow:before {
   content: "\F142";
+  background-color:#2e3192;
 }
 #sidebar-menu ul li a.subdrop .menu-arrow {
   -ms-transform: rotate(90deg);
@@ -187,13 +188,13 @@ body.fixed-left .side-menu.left {
   display: none;
 }
 #sidebar-menu ul ul li {
-  border-top: 0;
+  border-top: 1px solid #ffffff;;
 }
 #sidebar-menu ul ul li.active a {
-  color: #7fc1fc;
+  color: #ffffff;
 }
 #sidebar-menu ul ul a {
-  color: #98a6ad;
+  color: #ffffff;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -221,7 +222,7 @@ body.fixed-left .side-menu.left {
   background-color: #313a46;
 }
 #sidebar-menu > ul > li > a {
-  color: #98a6ad;
+  color: #ffffff;
   display: block;
   padding: 12px 20px;
   margin: 2px 0;

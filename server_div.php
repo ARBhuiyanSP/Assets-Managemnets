@@ -1,5 +1,5 @@
 <?php
-$dbh = new PDO('mysql:host=localhost;dbname=ams', 'root', '');
+$dbh = new PDO('mysql:host=localhost;dbname=blueline', 'root', '');
 $page = isset($_GET['p'])? $_GET['p'] : '';
 if($page=='add'){
     try{

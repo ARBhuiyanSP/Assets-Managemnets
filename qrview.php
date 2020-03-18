@@ -1,17 +1,7 @@
 <?php include('header.php');
 $id=$_GET['id'];
  ?>
-            <!-- Left Sidebar End -->
-			
-			<!-- DataTables -->
-        <link href="plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-        <link href="plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="plugins/datatables/dataTables.colVis.css" rel="stylesheet" type="text/css"/>
-        <link href="plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="plugins/datatables/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
 			
 		
 
@@ -34,14 +24,32 @@ $id=$_GET['id'];
 						</div>
                         <!-- end row -->
 
-                        <div class="row" id="printableArea" style="display:block;">
+                        <div class="row">
 								<?php
 								$sql	=	"select * from ams_products where id=$id";
 								$result = mysqli_query($link, $sql);
 								$row=mysqli_fetch_array($result);
 								?>
-                            <div class="col-lg-4">
-								<table style="" class="table table-bordered">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10" id="printableArea" style="display:block;">
+								<table width='100%'>				
+									<tr>
+										<td style="text-align:center">
+											<div class="headbody">
+												<h1 align="center"><img src="images/blc-logo.png" width="162" height=""></h1>
+												<h2 align="center">BLUELINE COMMUNICATIONS LTD</h2>
+												<p align="center">Gulshan Grace, Apartment # 5E, Building # B, C.W.S. (C)-8,South Avenue, Gulshan-1, Dhaka, Bangladesh.</p>
+												<h3 align="center">Assets Details</h3>
+												<h1 align="center"><img src="<?php echo $row['qr_image'] ?>" height="200" /></h1>
+											</div>
+										</td>
+									</tr>
+								</table>
+								<table class="table table-bordered">
+									<tr>
+										<th>Product Photo:</th>
+										<td><img src="products_photo/<?php echo $row['pro_photo'] ?>" height="150" /></td>
+									</tr>
 									<tr>
 										<th>Item Name:</th>
 										<td><?php echo $row['item_name'] ?></td>
@@ -76,10 +84,7 @@ $id=$_GET['id'];
 									</tr>
 								</table>
 							</div>
-                            <div class="col-lg-8">
-								<h3>Scan Below Code</h3>
-								<img src="<?php echo $row['qr_image'] ?>" height="250" />
-							</div>
+                            <div class="col-sm-1"></div>
 						</div>
 						<button class="btn btn-default" onclick="printDiv('printableArea')"><i class="fa fa-print" aria-hidden="true" style="    font-size: 17px;"> Print</i></button>
 							
@@ -103,7 +108,7 @@ $id=$_GET['id'];
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
-                   2018 - <?php echo date('Y'); ?> © <a href="" target="blank">Saif Powertec</a>
+                   2018 - <?php echo date('Y'); ?> © <a href="" target="blank">Saif Powertec Ltd</a>
                 </footer>
 
             </div>
@@ -136,68 +141,8 @@ $id=$_GET['id'];
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <script src="plugins/switchery/switchery.min.js"></script>
-		
-		  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="plugins/datatables/dataTables.bootstrap.js"></script>
 
-        <script src="plugins/datatables/dataTables.buttons.min.js"></script>
-        <script src="plugins/datatables/buttons.bootstrap.min.js"></script>
-        <script src="plugins/datatables/jszip.min.js"></script>
-        <script src="plugins/datatables/pdfmake.min.js"></script>
-        <script src="plugins/datatables/vfs_fonts.js"></script>
-        <script src="plugins/datatables/buttons.html5.min.js"></script>
-        <script src="plugins/datatables/buttons.print.min.js"></script>
-        <script src="plugins/datatables/dataTables.fixedHeader.min.js"></script>
-        <script src="plugins/datatables/dataTables.keyTable.min.js"></script>
-        <script src="plugins/datatables/dataTables.responsive.min.js"></script>
-        <script src="plugins/datatables/responsive.bootstrap.min.js"></script>
-        <script src="plugins/datatables/dataTables.scroller.min.js"></script>
-        <script src="plugins/datatables/dataTables.colVis.js"></script>
-        <script src="plugins/datatables/dataTables.fixedColumns.min.js"></script>
-<script type="text/javascript">
-            $(document).ready(function () {
-                $('#datatable').dataTable();
-                $('#datatable-keytable').DataTable({keys: true});
-                $('#datatable-responsive').DataTable();
-                $('#datatable-colvid').DataTable({
-                    "dom": 'C<"clear">lfrtip',
-                    "colVis": {
-                        "buttonText": "Change columns"
-                    }
-                });
-                $('#datatable-scroller').DataTable({
-                    ajax: "../plugins/datatables/json/scroller-demo.json",
-                    deferRender: true,
-                    scrollY: 380,
-                    scrollCollapse: true,
-                    scroller: true
-                });
-                var table = $('#datatable-fixed-header').DataTable({fixedHeader: true});
-                var table = $('#datatable-fixed-col').DataTable({
-                    scrollY: "300px",
-                    scrollX: true,
-                    scrollCollapse: true,
-                    paging: false,
-                    fixedColumns: {
-                        leftColumns: 1,
-                        rightColumns: 1
-                    }
-                });
-            });
-            TableManageButtons.init();
 
-        </script>
-
-        <!-- Counter js  -->
-        <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
-        <script src="plugins/counterup/jquery.counterup.min.js"></script>
-
-        <!--Morris Chart-->
-		<script src="plugins/morris/morris.min.js"></script>
-		<script src="plugins/raphael/raphael-min.js"></script>
-
-        <!-- Dashboard init -->
-        <script src="assets/pages/jquery.dashboard.js"></script>
 
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>

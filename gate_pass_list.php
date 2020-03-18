@@ -35,13 +35,13 @@
                         <div class="row">
                            <div class="col-lg-12">
                                 <div class="container">
-									<div style="text-align:center;"><button class="btn btn-info" onclick="window.location.href = 'allview.php'" class=''> View All Gate Pass <i class="fa fa-eye text-success"></i></button></div>
+									<div style="text-align:center;"><button class="btn btn-info" onclick="window.location.href = 'gate_pass.php'" class=''> Add New Challan <i class="fa fa-eye text-success"></i></button></div>
 									<table id="datatable" class="table table-striped table-bordered">
 										<thead>
                                         <tr>
+											<th>Challan No</th>
 											<th>Client Name</th>
 											<th>Item Name</th>
-											<th>Challan No</th>
 											<th>Quantity</th>
 											<th>Action</th>
                                         </tr>
@@ -49,14 +49,23 @@
 										<tbody>
 											<tr id="" bgcolor="#f2f2f2" class="edit_tr">
 											<?php
-											$sql	=	"select * from gate_pass";
+											$sql	=	"select * from gate_pass group by challan_no";
 											$result = mysqli_query($link, $sql);
 											while($row=mysqli_fetch_array($result))
 											{
 											?>
-												<td><span class="text"><?php echo $row['client_name'] ?></span></td>
-												<td><span class="text"><?php echo $row['item_name'] ?></span></td>
 												<td><span class="text"><?php echo $row['challan_no'] ?></span></td>
+												<td><span class="text"><?php echo $row['client_name'] ?></span></td>
+												<td>
+													<span class="text">
+														<?php $id=$row['product_name'];
+															$sqlpr	=	"select * from ams_products where id=$id;";
+															$resultpr = mysqli_query($link, $sqlpr);
+															$rowpr=mysqli_fetch_array($resultpr);
+															echo $rowpr['assets_description']
+														?>
+													</span>
+												</td>
 												<td><span class="text"><?php echo $row['quantity'] ?></span></td>
 												<td class='text-center'> 
 												<button onclick="editData('<?php echo $row['category'] ?>','<?php echo $row['product_code'] ?>','<?php echo $row['product_name'] ?>','<?php echo $row['dep_rate'] ?>')" class=''><i class="fa fa-edit text-success"></i></button>

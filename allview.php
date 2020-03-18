@@ -73,19 +73,19 @@ $id=$_GET['id'];
                                                                                                         }
                                                                                                         @media print {
                                                                                                                 @page {
-                                                                                                                        size: 2.4in 2.4in ;
+                                                                                                                        size: 0.9in 1.8in ;
                                                                                                                         margin: 0;
                                                                                                                   }
                                                                                                                 html, body {
                                                                                                                         margin: 0;
                                                                                                                   }
                                                                                                                 img{
-                                                                                                                        width: 2.3in;
-                                                                                                                        height: 2.3in;
+                                                                                                                        width: 0.8in;
+                                                                                                                        height: 0.8in;
 																														display: block;
-																														margin-left: 50px;
+																														margin-left: 40px;
 																														margin-right: auto;
-																														margin-top: -15px;
+																														margin-top: 10px;
 																														margin-bottom: auto;
                                                                                                                 }
 																												.code_style{
@@ -100,9 +100,10 @@ $id=$_GET['id'];
 																												}
                                                                                                         }
                                                                                             </style>
-
+																							
+                                                                                            <img src="images/logo.png" height="1.4in"/> 
                                                                                             <img src="<?php echo $row['qr_image']; ?>" /> 
-																							<p class="code_style" style="">BLC-<?php echo sprintf('%06d',$row['id']) ?></p>
+																							<!-- <p class="code_style" style="">BLC-<?php //echo sprintf('%06d',$row['id']) ?></p> -->
                                                                                         </td></tr>
 
 									<?php

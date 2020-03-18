@@ -27,7 +27,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Assets Managements</title>
+        <title>Blueline Communications Ltd</title>
 		
         <!-- Custom box css -->
         <link href="plugins/custombox/css/custombox.min.css" rel="stylesheet">
@@ -69,16 +69,16 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.php" class="logo"><span>BLUELINE<span>-AMS</span></span><i class="mdi mdi-layers"></i></a>
+                    <!--<a href="index.php" class="logo"><span>BLUELINE<span>-AMS</span></span><i class="mdi mdi-layers"></i></a>-->
                     <!-- Image logo -->
-                    <!--<a href="index.html" class="logo">-->
-                        <!--<span>-->
-                            <!--<img src="assets/images/logo.png" alt="" height="30">-->
-                        <!--</span>-->
-                        <!--<i>-->
-                            <!--<img src="assets/images/logo_sm.png" alt="" height="28">-->
-                        <!--</i>-->
-                    <!--</a>-->
+                    <a href="index.html" class="logo">
+                        <span>
+                           <img src="images/blc-logo.png" alt="" height="70">
+                        </span>
+                        <i>
+                            <img src="images/logo_sm.png" alt="" height="28">
+                        </i>
+                    </a>
                 </div>
 
                 <!-- Button mobile view to collapse sidebar menu -->
@@ -128,62 +128,65 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
                         <ul>
-                        	<li class="menu-title">Navigation</li>
-							<li>
+                        	<li class="menu-title" style="color:#ffffff;">Navigation</li>
+							<li style="background-color:#2e3192;">
                                 <a href="dashboard.php" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span> Dashboard </span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="vendors.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Vendors </span></a>
                             </li>
 							
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="clients.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Clients </span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="company.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Company </span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="division.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Division </span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="department.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Department </span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="designation.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Designation </span></a>
-                            </li>
-							<li>
+                            </li style="background-color:#2e3192;">
+							<li style="background-color:#2e3192;">
                                 <a href="employee_entry.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Employee </span></a>
-                            </li>
+                            </li style="background-color:#2e3192;">
 							
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="assets_category.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Assets Category </span></a>
-                            </li>
-							<li>
+                            </li style="background-color:#2e3192;">
+							<li style="background-color:#2e3192;">
                                 <a href="products_entry.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Assets Entry </span></a>
-                            </li>
-							<li>
+                            </li style="background-color:#2e3192;">
+							<li style="background-color:#2e3192;">
                                 <a href="products_list.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Products List </span></a>
                             </li>
 							
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="assign-entry.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Assign / Transfer </span></a>
                             </li>
-							<li>
-                                <a href="gate_pass.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Challan </span></a>
+							<li style="background-color:#2e3192;">
+                                <a href="gate_pass.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Gate Pass </span></a>
                             </li>
-							<li>
-                                <a href="gate_pass_list.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Challan List</span></a>
+							<li style="background-color:#2e3192;">
+                                <a href="gate_pass_list.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Gate Pass List</span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
+                                <a href="assets-return.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Assets Return</span></a>
+                            </li>
+							<li style="background-color:#2e3192;">
                                 <a href="disposal-entry.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Disposal </span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="disposal-list.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Disposal List </span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="disposal-check.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Disposal Check </span></a>
                             </li>
-							<li>
+							<li style="background-color:#2e3192;">
                                 <a href="users.php" class="waves-effect"><i class="mdi mdi-account-multiple"></i><span> Users </span></a>
                             </li>
                         </ul>
